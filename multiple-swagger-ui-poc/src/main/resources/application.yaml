@@ -1,0 +1,31 @@
+spring.application.name: multiple-swagger-ui-poc
+
+server:
+   port: 8080
+   servlet.context-path: /
+
+springdoc:
+  swagger-ui:
+    oauth:
+      tokenURL: url
+      client-id: clientId
+      client-secret: clientSecret
+    display-request-duration: true
+    disable-swagger-default-url: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    queryConfigEnabled: true
+    configUrl: /v3/api-docs/swagger-config
+    url: /v3/api-docs
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: user
+      password: password
+      database: mongodb
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
