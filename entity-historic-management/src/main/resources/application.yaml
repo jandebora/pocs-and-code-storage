@@ -1,0 +1,34 @@
+spring.application.name: entity-historic-management-poc
+
+server:
+   port: 8080
+   servlet.context-path: /
+
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    disable-swagger-default-url: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgresdb
+    username: user
+    password: password
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      org:
+        hibernate:
+          envers:
+            audit_table_suffix: _AUDIT
+            revision_field_name: REVISION_ID
+            revision_type_field_name: REVISION_TYPE
+            store_data_at_delete: true
