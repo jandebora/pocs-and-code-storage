@@ -1,0 +1,18 @@
+
+spring.application.name: grid-webflux-service1
+springfox.documentation.swagger.v2.path: /grid-webflux-service1
+
+server:
+   port: 8080
+   servlet.context-path: /
+   
+springdoc:
+  swagger-ui:
+    oauth:
+      tokenURL: url
+      client-id: clientId
+      client-secret: clientSecret
+    display-request-duration: true
+    disable-swagger-default-url: true
+    tags-sorter: alpha
+    operations-sorter: alpha
