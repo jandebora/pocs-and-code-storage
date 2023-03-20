@@ -1,0 +1,48 @@
+spring.application.name: profile-poc
+
+server:
+   port: 8080
+   servlet.context-path: /
+
+springdoc:
+  swagger-ui:
+    display-request-duration: true
+    disable-swagger-default-url: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    
+--- 
+
+spring:
+  profiles: mongodb
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: user
+      password: password
+      database: mongodb
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      
+---
+
+spring:
+  profiles: postgresql
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgresdb
+    username: user
+    password: password
+    hikari:
+      connection-timeout: 20000
+      maximum-pool-size: 5
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate: 
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  autoconfigure:
+    exclude: 
