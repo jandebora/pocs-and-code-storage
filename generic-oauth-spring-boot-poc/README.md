@@ -5,13 +5,13 @@
     * Verificar el identificador (issuer) emisor
     * Verificar la firma del token (jwk-uri) a través de la clave pública
 
-Se han realizado pruebas con Keycloak (estándar de la unidad) y Authentik (desplegable en local con el `docker-compose` provisto)
+Se han realizado pruebas con Keycloak y Authentik (desplegable en local con el `docker-compose` provisto)
 
 # Desarrollo de la PoC
 
 ## Configuración de seguridad
 
-Se ha desarrollado la clase de seguridad `SecurityOAuthConfiguration` tal y como se hace normalmente en los proyectos de la unidad. La diferencia, a parte de hacerlo usando los nuevos estándares de Spring Boot 3, es que hay que añadir lo siguiente a la clase que configura `HttpSecurity`:
+Se ha desarrollado la clase de seguridad `SecurityOAuthConfiguration` tal y como se hace normalmente. La diferencia, a parte de hacerlo usando los nuevos estándares de Spring Boot 3, es que hay que añadir lo siguiente a la clase que configura `HttpSecurity`:
 
 ```java
     ...
